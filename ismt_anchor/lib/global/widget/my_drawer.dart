@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ismt_anchor/routes/get_routes.dart';
@@ -65,6 +66,24 @@ class MyDrawer extends StatelessWidget {
                   Get.toNamed(Routes.feeScreen);
                  }),
                  profilecompoent("LogOut", Icons.logout,(){
+                    AwesomeDialog(
+                          autoHide: const Duration(seconds: 10),
+                          context: context,
+                          
+                          headerAnimationLoop: false,
+                          dismissOnTouchOutside: false,
+                          dismissOnBackKeyPress: false,
+                          dialogType: DialogType.warning,
+                          
+                          animType: AnimType.scale,
+                          title: 'Logout',
+                          desc: 'Are you sure?',
+                          btnCancelOnPress: () {},
+                          btnCancelColor: Colors.grey,
+                          btnOkColor: primaryColor,
+                          btnOkOnPress: () {
+                          },
+                        ).show();
                  }),
                 ],
               ),

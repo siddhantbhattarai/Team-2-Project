@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ismt_anchor/global/widget/my_drawer.dart';
 
 import '../../../global/widget/notification_bell_component.dart';
 import '../components/news_component.dart';
@@ -32,7 +33,7 @@ class _NewsScreenState extends State<NewsScreen> {
         ],
         
     ),
-    drawer: Drawer(),
+    drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

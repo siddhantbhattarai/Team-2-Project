@@ -6,6 +6,9 @@ import 'package:ismt_anchor/global/constant/color.dart';
 import 'package:ismt_anchor/screens/AddNews/add_news.dart';
 import 'package:ismt_anchor/screens/Home/view/home_screen.dart';
 import 'package:ismt_anchor/screens/News/view/news_screen.dart';
+import 'package:ismt_anchor/screens/Profile/view/profile_screen.dart';
+
+import '../StudentPost/view/student_post.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({super.key});
@@ -22,8 +25,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
    NewsScreen(),
 
    CreateNews(),
-   Text("Center4"),
-   Text("Center5"),
+   StudentPost(),
+   ProfileScreen(),
 
 
   ];

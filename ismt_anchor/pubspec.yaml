@@ -39,6 +39,8 @@ dependencies:
   image_picker: ^1.1.2
   dotted_border: ^2.1.0
   curved_navigation_bar: ^1.0.6
+  awesome_dialog: ^3.2.1
+  firebase_core: ^3.2.0
 
 dev_dependencies:
   flutter_test:

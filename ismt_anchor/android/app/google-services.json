@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060775617113",
+    "project_id": "ismtanchor",
+    "storage_bucket": "ismtanchor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060775617113:android:00147ba1e8c25421eec748",
+        "android_client_info": {
+          "package_name": "com.example.ismt_anchor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXSF4WZ7_Y0labKj-ztaLFnB6u7aDrYxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,7 @@ import 'package:ismt_anchor/screens/AddNews/add_news.dart';
 import 'package:ismt_anchor/screens/BottomNavigationBar/bottom_nav_bar.dart';
 import 'package:ismt_anchor/screens/Fee/view/fee_screen.dart';
 import 'package:ismt_anchor/screens/Home/view/home_screen.dart';
+import 'package:ismt_anchor/screens/Message/view/message_screen.dart';
 import 'package:ismt_anchor/screens/News/view/news_details.dart';
 import 'package:ismt_anchor/screens/News/view/news_screen.dart';
 import 'package:ismt_anchor/screens/Notification/view/notification_screen.dart';
@@ -25,5 +26,6 @@ List<GetPage<dynamic>> getpages = [
   GetPage(name: Routes.notificationScreen, page: () =>const NotificationScreen()),
   GetPage(name: Routes.feeScreen, page: () =>const FeeScreen()),
   GetPage(name: Routes.resultScreen, page: () =>const ResultScreen()),
+  GetPage(name: Routes.messageScreen, page: () =>const MessageScreen()),
   
   ];

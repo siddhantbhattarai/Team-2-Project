@@ -18,7 +18,8 @@ class _NewsScreenState extends State<StudentPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
-      title:const Text("News",style: TextStyle(color: Colors.black),),
+        centerTitle: true,
+      title:const Text("Posts",style: TextStyle(color: Colors.black),),
 
     actions: [
                  Padding(
@@ -50,7 +51,7 @@ class _NewsScreenState extends State<StudentPost> {
                          
                           },
                           child: const NewsComponent(
-                            image: "https://images.unsplash.com/photo-1721297015609-1374b1378d31?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                             desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dui nisl, condimentum condimentum purus at, posuere ornare ante. Proin lacinia euismod tortor vel pretium. Duis tincidunt nunc enim.",
                             time:"2024-07-21",
                             title: "What’s the cost of living of country? Learn More.. ",

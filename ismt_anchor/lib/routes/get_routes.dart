@@ -9,4 +9,5 @@ class Routes{
   static String notificationScreen="/notification-screen";
   static String feeScreen="/fee-screen";
   static String resultScreen="/result-screen";
+  static String messageScreen="/message-screen";
 }
