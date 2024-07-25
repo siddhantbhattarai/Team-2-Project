@@ -10,7 +10,11 @@ import 'package:ismt_anchor/screens/Message/view/message_screen.dart';
 import 'package:ismt_anchor/screens/News/view/news_details.dart';
 import 'package:ismt_anchor/screens/News/view/news_screen.dart';
 import 'package:ismt_anchor/screens/Notification/view/notification_screen.dart';
+import 'package:ismt_anchor/screens/Profile/view/profile_screen.dart';
+import 'package:ismt_anchor/screens/Result/view/all_result_screen.dart';
 import 'package:ismt_anchor/screens/Result/view/result_screen.dart';
+import 'package:ismt_anchor/screens/StudentPost/view/student_post.dart';
+import 'package:ismt_anchor/screens/Tutorial/view/tutorial_screen.dart';
 
 import '../screens/Login/view/login_screen.dart';
 import '../screens/SplashScreen/view/splash_screen.dart';
@@ -27,5 +31,9 @@ List<GetPage<dynamic>> getpages = [
   GetPage(name: Routes.feeScreen, page: () =>const FeeScreen()),
   GetPage(name: Routes.resultScreen, page: () =>const ResultScreen()),
   GetPage(name: Routes.messageScreen, page: () =>const MessageScreen()),
+  GetPage(name: Routes.profileScreen, page: () =>const ProfileScreen()),
+  GetPage(name: Routes.allresultsScreen, page: () =>const AllResultScreen()),
+  GetPage(name: Routes.tutorialScreen, page: () =>const TutorialScreen()),
+  GetPage(name: Routes.studentPost, page: () =>const StudentPost()),
   
   ];

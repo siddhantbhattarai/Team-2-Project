@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ismt_anchor/global/constant/apiurl.dart';
 import 'package:ismt_anchor/global/widget/my_drawer.dart';
+import 'package:ismt_anchor/screens/News/service/news_service.dart';
 
 import '../../../global/widget/notification_bell_component.dart';
 import '../components/news_component.dart';
@@ -39,9 +42,18 @@ class _NewsScreenState extends State<NewsScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-             
-                     ListView.builder(
-                      itemCount: 5,
+             FutureBuilder(future: NewsService().getallnews(), builder: (context, snapshot) {
+               if(snapshot.connectionState==ConnectionState.waiting){
+                return SizedBox(
+                  height: Get.height*0.7,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+               }else{
+                return   ListView.builder(
+                      itemCount: snapshot.data
+                      !.length,
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {   
@@ -50,10 +62,10 @@ class _NewsScreenState extends State<NewsScreen> {
                          
                           },
                           child: NewsComponent(
-                            image: "https://images.unsplash.com/photo-1721297015609-1374b1378d31?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dui nisl, condimentum condimentum purus at, posuere ornare ante. Proin lacinia euismod tortor vel pretium. Duis tincidunt nunc enim.",
-                            time:"2024-07-21",
-                            title: "What’s the cost of living of country? Learn More.. ",
+                            image: "${imagebase}${snapshot.data![index].image}",
+                            desc: snapshot.data![index].description,
+                            time:snapshot.data![index].date,
+                            title:snapshot.data![index].title,
                           ),
                         );
                       },
@@ -61,7 +73,10 @@ class _NewsScreenState extends State<NewsScreen> {
 
 
 
-                     )
+                     );
+               }
+             },),
+                   
                     
             ],
           ),

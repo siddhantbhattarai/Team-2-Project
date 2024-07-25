@@ -41,6 +41,15 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   awesome_dialog: ^3.2.1
   firebase_core: ^3.2.0
+  youtube_player_flutter: ^9.0.1
+  http: ^1.2.2
+  firebase_messaging: ^15.0.3
+  flutter_local_notifications: ^17.2.1+2
+  shared_preferences: ^2.2.3
+  photo_view: ^0.15.0
+  url_launcher: ^6.3.0
+  percent_indicator: ^4.2.3
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

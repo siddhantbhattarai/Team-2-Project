@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ismt_anchor/global/constant/apiurl.dart';
 import 'package:ismt_anchor/global/constant/global.dart';
 
 class HomePostComponent extends StatelessWidget {
-  const HomePostComponent({super.key});
+  final String title;
+  final String description;
+  final String image;
+  final String date;
+  const HomePostComponent({super.key, required this.title, required this.description, required this.image, required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +31,20 @@ class HomePostComponent extends StatelessWidget {
                 height: 80,
                 width: 80,
                 decoration: BoxDecoration(
+                  image: DecorationImage(image: NetworkImage("$imagebase$image")),
                   borderRadius: BorderRadius.circular(20)
                 ),
-                child: Image.asset(logo),
+                
               ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-          Text("This is the title",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
           SizedBox(
             width: Get.width*0.6,
-            child: Text("This is the description of the post which is very important. This is the ..."))
+            child: Text(title,maxLines: 1,overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)),
+          SizedBox(
+            width: Get.width*0.6,
+            child: Text(description,maxLines: 2,overflow: TextOverflow.ellipsis,))
             ],
           )
                 ],
@@ -47,7 +55,7 @@ class HomePostComponent extends StatelessWidget {
           Positioned(
             bottom: 7,
             right: 15,
-            child: Text("2024-06-21",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 10,color: Color(0xffC9C9C9)),))
+            child: Text(date,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 10,color: Color(0xffC9C9C9)),))
         ],
       ),
     );

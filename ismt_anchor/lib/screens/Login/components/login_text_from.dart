@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:ismt_anchor/global/constant/color.dart';
 import 'package:ismt_anchor/routes/get_routes.dart';
 import 'package:ismt_anchor/screens/Login/components/login_text_field.dart';
+import 'package:ismt_anchor/screens/Login/service/login_service.dart';
 
 import '../../../global/widget/default_button.dart';
 
@@ -118,8 +119,11 @@ enabledBorder: OutlineInputBorder(
           DefaultButton(
             text: "LOGIN",
             onclick: () {
-              print("hello");
-            Get.toNamed(Routes.bottomNavigationScreen);
+              if(_key.currentState!.validate()){
+                LoginService().loginUser(email: emailcontroller.text.trim(), password: passwordcontroller.text.trim());
+              }
+            //   print("hello");
+            // Get.toNamed(Routes.bottomNavigationScreen);
             },
           ),
         ],

@@ -1,0 +1,28 @@
+import 'dart:convert';
+
+import 'package:ismt_anchor/global/constant/apiurl.dart';
+import 'package:ismt_anchor/screens/News/model/news_model.dart';
+import 'package:http/http.dart' as http;
+class NewsService{
+  Future<List<NewsModel>> getallnews()async{
+    List<NewsModel> allnews=[];
+    try {
+      
+      http.Response res = await http.get(Uri.parse(getnewsurl),
+          headers: {'Content-Type': 'Application/json'},
+         );
+      print("${res.body} hello");
+      if (res.statusCode == 200) {
+        for (var i = 0; i < jsonDecode(res.body).length; i++) {
+          allnews
+              .add(NewsModel.fromJson(jsonEncode(jsonDecode(res.body)[i])));
+        }
+      } else {
+        print("something went wrong");
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return allnews;
+  }
+}

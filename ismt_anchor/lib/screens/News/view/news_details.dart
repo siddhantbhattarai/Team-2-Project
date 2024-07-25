@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ismt_anchor/screens/News/view/image_view.dart';
 
 import '../../../global/widget/notification_bell_component.dart';
 
@@ -50,20 +51,25 @@ leading: Padding(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Card(
-                elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                 child: Container(
-                             width: Get.width,
-                             height: 300,
-                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                               image: DecorationImage(
-                  image: NetworkImage(data["image"]),
-                  fit: BoxFit.cover
-                  )
+               InkWell(
+                onTap: () {
+                  Get.to(ImageView(url: data["image"]));
+                },
+                 child: Card(
+                  elevation: 3,
+                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                   child: Container(
+                               width: Get.width,
+                               height: 400,
+                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                 image: DecorationImage(
+                    image: NetworkImage(data["image"],),
+                    fit: BoxFit.fill
+                    )
+                               ),
                              ),
-                           ),
+                 ),
                ),
 
                Padding(

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ismt_anchor/global/service/firebase_controller.dart';
 import 'package:ismt_anchor/routes/get_routes.dart';
 
 import 'global/constant/color.dart';
@@ -12,6 +13,8 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
+FirebaseController().initnotification();
+
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ismt_anchor/global/widget/custom_inner_navbar.dart';
 import 'package:ismt_anchor/global/widget/my_drawer.dart';
 
 import '../../../global/widget/notification_bell_component.dart';
@@ -17,24 +18,8 @@ class _NewsScreenState extends State<StudentPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
-        centerTitle: true,
-      title:const Text("Posts",style: TextStyle(color: Colors.black),),
-
-    actions: [
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Container(
-                    width:40,
-                    height: 40,
-                    child: NotificationBellComponent()),
-                 )
+      appBar:const  CustomAppBar(title: "Posts"),
     
-         
-        ],
-        
-    ),
-    drawer:const MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

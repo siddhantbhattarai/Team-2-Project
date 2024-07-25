@@ -10,4 +10,8 @@ class Routes{
   static String feeScreen="/fee-screen";
   static String resultScreen="/result-screen";
   static String messageScreen="/message-screen";
+  static String profileScreen="/profile-screen";
+  static String allresultsScreen="/all-results-screen";
+  static String tutorialScreen="/tutorial-screen";
+  static String studentPost="/student-post-screen";
 }

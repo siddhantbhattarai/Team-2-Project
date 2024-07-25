@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ismt_anchor/global/constant/color.dart';
+import 'package:ismt_anchor/global/constant/global.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
-class TopComponent extends StatelessWidget {
+class TopComponent extends StatefulWidget {
   final int color1;
   final int color2;
   final String topnumber;
@@ -13,50 +16,79 @@ class TopComponent extends StatelessWidget {
   const TopComponent({super.key, required this.color1, required this.color2, required this.topnumber, required this.bottomnumber, required this.title, required this.image});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 230,
-      width: Get.width*0.44,
-    
-           decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-                  colors: [
-                    Color(color1), 
-                  
-                    Color(color2)
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.0,  1.0],
-                ),
-        
-        
-        
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-           GlassContainer(child: Image.asset(image,),),
-           SizedBox(height: 30,),
-           Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-          Text(topnumber,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 50,color: Colors.white),),
-          Text("/$bottomnumber",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15,color: Colors.white),)
-    
-            ],
-           ),
-           SizedBox(height: 15,),
-          Text(title,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 25,color: Colors.white),)
+  State<TopComponent> createState() => _TopComponentState();
+}
 
-          ],
+class _TopComponentState extends State<TopComponent> {
+ 
+
+
+  @override
+  Widget build(BuildContext context) {
+      double percent=attendance/90*100;
+      print(percent/100);
+    return Stack(
+      children: [
+        Container(
+          height: 230,
+          width: Get.width*0.44,
+        
+               decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                      colors: [
+                        Color(widget.color1), 
+                      
+                        Color(widget.color2)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0,  1.0],
+                    ),
+            
+            
+            
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+               GlassContainer(child: Image.asset(widget.image,),),
+               SizedBox(height: 30,),
+               Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+              Text(widget.topnumber,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 50,color: Colors.white),),
+              Text("/${widget.bottomnumber}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15,color: Colors.white),)
+        
+                ],
+               ),
+               SizedBox(height: 15,),
+              Text(widget.title,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 25,color: Colors.white),)
+        
+              ],
+            ),
+          ),
         ),
-      ),
+        widget.title=="Attendance"?    Positioned(
+          top: 20,
+          right: 15,
+          child: CircularPercentIndicator(
+                  radius: 40.0,
+                  lineWidth: 10.0,
+                  animation: true,
+                  percent: percent/100,
+                  center:  Text("${percent.round()}%",style: TextStyle(color: Colors.white,),),
+                
+                  backgroundColor:Color.fromARGB(255, 255, 255, 255),
+                  progressColor: Colors.green,
+                ),
+        ):Center(),
+      ],
     );
   }
+  
 }
 class GlassContainer extends StatelessWidget {
   final Widget child;

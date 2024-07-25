@@ -1,12 +1,12 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ismt_anchor/global/constant/color.dart';
 import 'package:ismt_anchor/screens/AddNews/add_news.dart';
 import 'package:ismt_anchor/screens/Home/view/home_screen.dart';
 import 'package:ismt_anchor/screens/News/view/news_screen.dart';
 import 'package:ismt_anchor/screens/Profile/view/profile_screen.dart';
+import 'package:ismt_anchor/screens/Tutorial/view/tutorial_screen.dart';
 
 import '../StudentPost/view/student_post.dart';
 
@@ -23,9 +23,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   List<Widget> children=[
    HomeScreen(),
    NewsScreen(),
-
    CreateNews(),
-   StudentPost(),
+   TutorialScreen(),
    ProfileScreen(),
 
 
@@ -34,6 +33,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   
    GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
