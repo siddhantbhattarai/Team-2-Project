@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Academic Results</title>
+    <!-- Add any necessary meta tags and links to stylesheets here -->
+  </head>
+  <body>
+    <th:block th:insert="header.html"></th:block>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <th:block th:insert="_sidebar.html"></th:block>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <th:block th:insert="_navbar.html"></th:block>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Students Results</h4>
+                  <p class="card-description">Enhance Students' Academic Life</p>
+                  <form class="forms-sample" action="/resultadd" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="yearSelect">Year</label>
+                      <select class="form-control form-control-sm" id="yearSelect" name="">
+                        <option value="">--Select--</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="semesterSelect">Select Section</label>
+                      <select class="form-control form-control-sm" id="semesterSelect" name="">
+                        <option value="">--Select--</option>
+                        <option value="1st Semester">A Section</option>
+                        <option value="2nd Semester">B Section</option>
+                        <option value="3rd Semester">C Section</option>
+                        <option value="4th Semester">D Section</option>
+                        <option value="5th Semester">E Section</option>
+                        <option value="6th Semester">F Section</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="studentNameSelect">Student Name</label>
+                      <select class="form-control form-control-sm" id="studentNameSelect" name="student">
+                        <option value="">--Select--</option>
+                        <option th:each="s : ${slist}" th:value="${s.id}">[[${s.name}]]</option>
+                        </select>
+                    </div>
+                                        <div class="form-group">
+                      <label for="semesterSelect">Select Semester</label>
+                      <select class="form-control form-control-sm" id="semesterSelect" name="semester">
+                        <option value="">--Select--</option>
+                        <option value="1st Semester">1st Semester</option>
+                        <option value="2nd Semester">2nd Semester</option>
+                        <option value="3rd Semester">3rd Semester</option>
+                        <option value="4th Semester">4th Semester</option>
+                        <option value="5th Semester">5th Semester</option>
+                        <option value="6th Semester">6th Semester</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="resultPhoto">Result Photo</label>
+                      <input type="file" class="form-control" id="resultPhoto" name="resultPhoto">
+                    </div>
+                  
+                    
+                    <div class="form-group">
+                      <label for="semesterSelect">Result Status</label>
+                      <select class="form-control form-control-sm" id="semesterSelect" name="passfail">
+                        <option value="">--Select--</option>
+                        <option value="Pass"> Pass </option>
+                        <option value="Fail"> Fail </option>
+                              <option value="Running"> Running </option>
+                        
+                      </select>
+                      </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a href="/dashboard"><button type="button" class="btn btn-dark">Cancel</button></a>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <th:block th:insert="_footer.html"></th:block>
+            <!-- partial -->
+          </div>
+          <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+      </div>
+    </div>
+    <!-- End custom js for this page -->
+  </body>
+</html>

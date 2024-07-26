@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+	<th:block th:insert="header.html"></th:block>
+	<div class="container-scroller">
+		<!-- partial:partials/_sidebar.html -->
+		<th:block th:insert="_sidebar.html"></th:block>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_navbar.html -->
+			<th:block th:insert="_navbar.html"></th:block>
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+
+					<div class="row">
+						<div class="col-12 grid-margin">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Attandance Management System</h4>
+
+									<div class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>
+														<div class="form-check form-check-muted m-0">
+															<label class="form-check-label"> <input
+																type="checkbox" class="form-check-input">
+															</label>
+														</div>
+													</th>
+													<th>Name of Student:</th>
+													<th>Attandance</th>
+
+
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr th:each="ev : ${slist}">
+													<td>
+														<div class="form-check form-check-muted m-0">
+															<label class="form-check-label"> <input
+																type="checkbox" class="form-check-input">
+															</label>
+														</div>
+													</td>
+													<td th:text="${ev.name}"></td>
+
+
+													<td><a class="btn btn-success">Present</a> <a
+														class="btn btn-danger">Absent</a> <a
+														class="btn btn-warning">Leave</a> <a
+														class="btn btn-secondary">Late</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<th:block th:insert="_footer.html"></th:block>
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			</div>
+			<!-- page-body-wrapper ends -->
+		</div>
+	</div>
+	<!-- End custom js for this page -->
+</body>
+</html>

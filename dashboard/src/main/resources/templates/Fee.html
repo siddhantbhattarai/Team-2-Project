@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Academic Results</title>
+    <!-- Add any necessary meta tags and links to stylesheets here -->
+  </head>
+  <body>
+    <th:block th:insert="header.html"></th:block>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <th:block th:insert="_sidebar.html"></th:block>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <th:block th:insert="_navbar.html"></th:block>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Student Fee</h4>
+                  <p class="card-description">fill out all the information</p>
+                  <form class="forms-sample" action="/fee" method="post" >
+                  
+                  
+                  <div class="form-group">
+                      <label for="studentNameSelect">Student Name</label>
+                      <select class="form-control form-control-sm" id="studentNameSelect" name="student">
+                        <option value="">--Select--</option>
+                        <option th:each="s : ${slist}" th:value="${s.id}">[[${s.name}]]</option>
+                        </select>
+                    </div>
+ 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Total Fee</label>
+                        <input type="number" class="form-control" id="exampleInputName1" placeholder="enter total fee" name="total">
+                      </div>
+                   
+                   <div class="form-group">
+                        <label for="exampleInputName1">Already paid</label>
+                        <input type="number" class="form-control" id="exampleInputName1" placeholder="enter already paid fee" name="paid">
+                      </div>
+                      
+                       <div class="form-group">
+                        <label for="exampleInputName1">Next Payment Amount</label>
+                        <input type="number" class="form-control" id="exampleInputName1" placeholder="enter next payment amount" name="nextPayment">
+                      </div>
+   
+                      <div class="form-group">
+                        <label for="exampleInputName1">Next payment Date </label>
+                        <input type="date" class="form-control" id="exampleInputName1" placeholder="enter next payment amoutn" name="nextPaymentDate">
+                      </div>
+                      
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a href="/dashboard"><button type="button" class="btn btn-dark">Cancel</button></a>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <th:block th:insert="_footer.html"></th:block>
+            <!-- partial -->
+          </div>
+          <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+      </div>
+    </div>
+    <!-- End custom js for this page -->
+  </body>
+</html>

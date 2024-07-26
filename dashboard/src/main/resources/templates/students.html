@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <!-- Include necessary CSS -->
+    <link rel="stylesheet" href="path/to/bootstrap.css">
+    <!-- Other CSS links -->
+
+    <!-- Include necessary scripts -->
+    <script src="path/to/jquery.js"></script>
+    <!-- Other script includes -->
+</head>
+<body>
+    <!-- Include header -->
+    <th:block th:include="header.html"></th:block>
+    
+    <div class="container-scroller">
+        <!-- Include sidebar -->
+        <th:block th:include="_sidebar.html"></th:block>
+        
+        <div class="container-fluid page-body-wrapper">
+            <!-- Include navbar -->
+            <th:block th:include="_navbar.html"></th:block>
+            
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Student Posts</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Student Name</th>
+                                                    <th>Section</th>
+                                                    <th>Semester</th>
+                                                    <th>Address</th>
+                                                    <th>Email Address</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Course</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Iterate over each student in the "students" list -->
+                                                <tr th:each="student : ${students}">
+                                                    <td>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td th:text="${student.name}"></td>
+                                                    <td th:text="${student.section}"></td>
+                                                    <td th:text="${student.semester}"></td>
+                                                    <td th:text="${student.address}"></td>
+                                                    <td th:text="${student.email}"></td>
+                                                    <td th:text="${student.mobile}"></td>
+                                                    <td th:text="${student.course}"></td>
+                                                    <td>
+                                                        <a th:href="@{/edit(id=${student.id})}" type="submit" class="btn btn-success">Edit</a>
+                                                        <a th:href="@{/std/delete(id=${student.id})}" type="submit" class="btn btn-danger">Delete</a>
+                                                        <a  class="btn btn-info">View</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Include footer -->
+                    <th:block th:include="_footer.html"></th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

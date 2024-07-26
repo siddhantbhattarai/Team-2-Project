@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+
+  </head>
+  <body>
+    <th:block th:insert="header.html"></th:block>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+     <th:block th:insert="_sidebar.html"></th:block>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+         <th:block th:insert="_navbar.html"></th:block>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Upload Academic Tutorial</h4>
+                    <p class="card-description"> enhance students Academic Life </p>
+                    <form class="forms-sample" action="/academictutorial" method="post">
+                      <div class="form-group">
+                        <label for="exampleInputName1"> Title </label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Title" name="Title">
+                      </div>
+                      
+                             <div class="form-group">
+                      <label for="exampleFormControlSelect3">Select Course</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="course">
+                      <option value=""> --Select--</option>
+                        <option value="Computer Systems and Engineering BSc.IT">Computer Systems and Engineering BSc.IT</option>
+                        <option value="B.Sc. Honors International Tourism and Hospitality Management BHM">B.Sc. Honors International Tourism and Hospitality Management BHM</option>
+                        <option value="BA and BBA">BA and BBA </option>
+                      </select>
+                    </div>        
+                    
+                    
+                            
+                               <div class="form-group">
+                      <label for="exampleFormControlSelect3">Select Semester</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="semester">
+                      <option value=""> --Select--</option>
+                        <option value="1th Semester ">1th Semester </option>
+                        <option value="2nd Semester ">2nd Semester</option>
+                        <option value="3rd Semester ">3rd Semester</option>
+                        <option value="4th Semester ">4th Semester</option>
+                        <option value="5th Semester ">5th Semester</option>
+                        <option value="6th Semester ">6th Semester</option>
+                      </select>
+                    </div>            
+                    
+                    
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Subject</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Subject" name="Subject">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Link</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Content Link" name="link">
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <a href="/dashboard"><button class="btn btn-dark"  >Cancel</button></a> 
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Academic Tutorial overview</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Title</th>
+                                                    <th>Semester</th>
+                                                    <th>course</th>
+                                                    <th>Subject</th>
+                                                    <th>Link</th>
+                                                    <th>Action</th>
+                     
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Iterate over each student in the "students" list -->
+                                                <tr th:each="AT : ${Alist}">
+                                                    <td>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td th:text="${AT.Title}"></td>
+                                                    <td th:text="${AT.Semester}"></td>
+                                                    <td th:text="${AT.course}"></td>
+                                                   
+                                                    <td th:text="${AT.Subject}"></td>
+                                                   <td th:text="${AT.link}"></td>
+
+                                                    <td>
+                                                       
+                                                        <a class="btn btn-danger">Delete</a>
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+          <th:block th:insert="_footer.html"></th:block>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+   </div>
+    <!-- End custom js for this page -->
+  </body>
+</html>

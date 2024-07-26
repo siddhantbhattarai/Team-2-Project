@@ -1,0 +1,168 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <a href="/dashboard"><img src="assets/images/logo/logo.png" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="assets/images/[[${session.validuser.username}]]" alt="logo" /></a>
+  </div>
+  <ul class="nav">
+    <li class="nav-item profile">
+      <div class="profile-desc">
+        <div class="profile-pic">
+          <div class="count-indicator">
+            <img class="img-xs rounded-circle " th:src="@{/assets/images/admin/{img}(img=${session.validuser.profilePic})}" alt="">
+            <span class="count bg-success"></span>
+          </div>
+          <div class="profile-name">
+            <p style="size: 10" class="mb-0 font-weight-normal">[[${session.validuser.username}]]</p>
+            <span>Admin</span>
+          </div>
+        </div>
+        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+          <a href="#" class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-dark rounded-circle">
+                <i class="mdi mdi-settings text-primary"></i>
+              </div>
+            </div>
+            <div class="preview-item-content">
+              <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-dark rounded-circle">
+                <i class="mdi mdi-onepassword  text-info"></i>
+              </div>
+            </div>
+            <div class="preview-item-content">
+              <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-dark rounded-circle">
+                <i class="mdi mdi-calendar-today text-success"></i>
+              </div>
+            </div>
+            <div class="preview-item-content">
+              <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item nav-category">
+      <span class="nav-link">Navigation</span>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="/dashboard">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-icon">
+          <i class="mdi mdi-account"></i>
+        </span>
+        <span class="menu-title">Students</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/studentview">View Students</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/addstudent">Add Students</a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"></a></li>
+        </ul>
+      </div>
+    </li>
+    
+    
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/news">
+    <span class="menu-icon">
+      <i class="mdi mdi-newspaper"></i> <!-- Icon for Recent News -->
+    </span>
+    <span class="menu-title">Add Recent News</span>
+  </a>
+</li>
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/event">
+    <span class="menu-icon">
+      <i class="mdi mdi-calendar-plus"></i> <!-- Icon for New Event -->
+    </span>
+    <span class="menu-title">Add New Event</span>
+  </a>
+</li>
+
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/resultadd">
+    <span class="menu-icon">
+      <i class="mdi mdi-file-document"></i> <!-- Icon for Result -->
+    </span>
+    <span class="menu-title">Result</span>
+  </a>
+</li>
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/attendances">
+    <span class="menu-icon">
+      <i class="mdi mdi-account-check"></i> <!-- Icon for Attendance -->
+    </span>
+    <span class="menu-title">Attendance</span>
+  </a>
+</li>
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/fee">
+    <span class="menu-icon">
+      <i class="mdi mdi-currency-usd"></i> <!-- Icon for Fee Details -->
+    </span>
+    <span class="menu-title">Fee Details</span>
+  </a>
+</li>
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/vacancy">
+    <span class="menu-icon">
+      <i class="mdi mdi-briefcase-search"></i> <!-- Icon for Vacancy -->
+    </span>
+    <span class="menu-title">Vacancy</span>
+  </a>
+</li>
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/academictutorial">
+    <span class="menu-icon">
+      <i class="mdi mdi-school"></i> <!-- Icon for Academic Tutorials -->
+    </span>
+    <span class="menu-title">Academic Tutorials</span>
+  </a>
+</li>
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="https://ismt.edu.np/privacy-policy">
+    <span class="menu-icon">
+      <i class="mdi mdi-lock"></i> <!-- Icon for Privacy policy -->
+    </span>
+    <span class="menu-title">Privacy policy</span>
+  </a>
+</li>
+
+
+<li class="nav-item menu-items">
+  <a class="nav-link" href="/logout">
+    <span class="menu-icon">
+      <i class="mdi mdi-logout"></i> <!-- Icon for Logout -->
+    </span>
+    <span class="menu-title">Logout</span>
+  </a>
+</li>
+
+    
+</nav>

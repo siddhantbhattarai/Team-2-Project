@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+
+  </head>
+  <body>
+    <th:block th:insert="header.html"></th:block>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+     <th:block th:insert="_sidebar.html"></th:block>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+         <th:block th:insert="_navbar.html"></th:block>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add New Students</h4>
+                    <p class="card-description"> fill out all the students Details </p>
+                    <form class="forms-sample" action="/addstudent"   method="post" enctype="multipart/form-data" >
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Address" name="address">
+                      </div>
+                      
+                                                     <div class="form-group">
+                      <label for="exampleFormControlSelect3">Select Course</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="course">
+                      <option value=""> --Select--</option>
+                        <option value="Computer Systems and Engineering BSc.IT">Computer Systems and Engineering BSc.IT</option>
+                        <option value="B.Sc. Honors International Tourism and Hospitality Management BHM">B.Sc. Honors International Tourism and Hospitality Management BHM</option>
+                        <option value="BA and BBA">BA and BBA </option>
+                      </select>
+                    </div>            
+                                            <div class="form-group">
+                        <label for="exampleInputEmail3">Mobile</label>
+                        <input type="number" class="form-control" id="exampleInputEmail3" placeholder="Mobile" name="mobile">
+                      </div>
+                      
+                      
+                            
+                               <div class="form-group">
+                      <label for="exampleFormControlSelect3">Select Semester</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="semester">
+                      <option value=""> --Select--</option>
+                        <option value="1th Semester ">1th Semester </option>
+                        <option value="2nd Semester ">2nd Semester</option>
+                        <option value="3rd Semester ">3rd Semester</option>
+                        <option value="4th Semester ">4th Semester</option>
+                        <option value="5th Semester ">5th Semester</option>
+                        <option value="6th Semester ">6th Semester</option>
+                      </select>
+                    </div>            
+                    
+                                                   <div class="form-group">
+                      <label for="exampleFormControlSelect3">Select Semester</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="section">
+                      <option value=""> --Select--</option>
+                        <option value="2021 A ">2023 A </option>
+                        <option value="2022 B ">2023 B</option>
+                        <option value="2023 C ">2023 C</option>
+                        <option value="2024 D ">2023 D</option>
+                        <option value="2022 E ">2023 E</option>
+                        <option value="2023 F ">2023 F</option>
+                      </select>
+                    </div>   
+                     <div class="form-group">
+                        <label for="exampleInputPassword4">UserName</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Username" name="username">
+                      </div>         
+                     
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
+                      </div>
+                      
+                       <div class="form-group">
+                        <label for="exampleInputPassword4">Profile pic</label>
+                        <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Select Student profile pic" name="profilepic">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <a href="/dashboard"><button class="btn btn-dark"  >Cancel</button></a> 
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+          <th:block th:insert="_footer.html"></th:block>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+   </div>
+    <!-- End custom js for this page -->
+  </body>
+</html>

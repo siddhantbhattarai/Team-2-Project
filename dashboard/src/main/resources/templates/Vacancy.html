@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+
+  </head>
+  <body>
+    <th:block th:insert="header.html"></th:block>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+     <th:block th:insert="_sidebar.html"></th:block>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+         <th:block th:insert="_navbar.html"></th:block>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add new job Vacancy</h4>
+                    <p class="card-description">fill out all the the data </p>
+                    <form class="forms-sample" action="/vacancy" method="post">
+                      <div class="form-group">
+                        <label for="exampleInputName1"> Vacancy Post </label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter vacancy post" name="post">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Description</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Enter job description" name="description">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Issue Date</label>
+                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="select issue date" name="issueDate">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Last Date</label>
+                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="select last date" name="lastDate">
+                      </div>
+                      
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Apply Link</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Enter apply link" name="applyLink">
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <a href="/dashboard"><button class="btn btn-dark"  >Cancel</button></a> 
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Vacancy overview</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Title</th>
+                                                    <th>Semester</th>
+                                                    <th>course</th>
+                                                    <th>Subject</th>
+                                                    <th>Link</th>
+                                                    <th>Action</th>
+                     
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Iterate over each student in the "students" list -->
+                                                <tr th:each="v : ${vlist}">
+                                                    <td>
+                                                        <div class="form-check form-check-muted m-0">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td th:text="${v.post}"></td>
+                                                    <td th:text="${v.description}"></td>
+                                                    <td th:text="${v.issueDate}"></td>
+                                                   
+                                                    <td th:text="${v.lastDate}"></td>
+                                                   <td th:text="${v.applyLink}"></td>
+
+                                                    <td>
+                                                       
+                                                        <a class="btn btn-danger">Delete</a>
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+          <th:block th:insert="_footer.html"></th:block>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+   </div>
+    <!-- End custom js for this page -->
+  </body>
+</html>
