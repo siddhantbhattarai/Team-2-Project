@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ismt_anchor/global/widget/custom_inner_navbar.dart';
 import 'package:ismt_anchor/screens/Fee/components/history_component.dart';
 
@@ -9,6 +10,7 @@ class FeeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var data=Get.arguments;
     return Scaffold(
       appBar: CustomAppBar(title: "Your Fee"),
       body: SingleChildScrollView(
@@ -18,7 +20,7 @@ class FeeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FeeComponent(),
+              FeeComponent(accountid: "#123212",duebalance: data["nextPayment"],duedate: data["duedate"],title: "",),
               SizedBox(height: 30,),
               Text("History",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
               HistoryComponent(icon: Icons.done, title: "University Fee", subtitle: "Rs 100000", color1: Colors.greenAccent, lasttext: "Paid"),

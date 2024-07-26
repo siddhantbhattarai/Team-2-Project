@@ -12,6 +12,7 @@ class HomePostComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("$imagebase$image");
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Stack(

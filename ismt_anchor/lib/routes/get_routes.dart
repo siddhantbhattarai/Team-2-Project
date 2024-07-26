@@ -14,4 +14,6 @@ class Routes{
   static String allresultsScreen="/all-results-screen";
   static String tutorialScreen="/tutorial-screen";
   static String studentPost="/student-post-screen";
+  static String unabletoPayScreen="/unable-topay-screen";
+  static String jobVacancyScreen="/jobvacancy-screen";
 }

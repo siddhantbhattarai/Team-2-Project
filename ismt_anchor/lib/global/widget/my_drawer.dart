@@ -87,7 +87,7 @@ class MyDrawer extends StatelessWidget {
                 }),
                 profilecompoent("Job Vacancy", Icons.view_compact_alt_rounded,
                     () {
-                  Get.toNamed(Routes.feeScreen);
+                  Get.toNamed(Routes.jobVacancyScreen);
                 }),
                 profilecompoent("Your Result", Icons.text_snippet_outlined, () {
                   Get.toNamed(Routes.allresultsScreen);

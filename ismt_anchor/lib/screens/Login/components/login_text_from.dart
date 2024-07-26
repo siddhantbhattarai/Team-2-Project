@@ -5,6 +5,7 @@ import 'package:ismt_anchor/global/constant/color.dart';
 import 'package:ismt_anchor/routes/get_routes.dart';
 import 'package:ismt_anchor/screens/Login/components/login_text_field.dart';
 import 'package:ismt_anchor/screens/Login/service/login_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../global/widget/default_button.dart';
 
@@ -118,12 +119,15 @@ enabledBorder: OutlineInputBorder(
           ),
           DefaultButton(
             text: "LOGIN",
-            onclick: () {
+            onclick: () async{
               if(_key.currentState!.validate()){
+                // SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
+// sharedPreferences.setInt("id", 6);
+//             Get.toNamed(Routes.bottomNavigationScreen);
+
                 LoginService().loginUser(email: emailcontroller.text.trim(), password: passwordcontroller.text.trim());
               }
             //   print("hello");
-            // Get.toNamed(Routes.bottomNavigationScreen);
             },
           ),
         ],

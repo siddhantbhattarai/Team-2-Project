@@ -51,6 +51,7 @@ class FirebaseController {
     FirebaseMessaging.onMessageOpenedApp.listen(handlemessage);
     FirebaseMessaging.onMessage.listen((message) {
       final notification = message.notification;
+      print(message);
       if (notification == null) return;
       localnotification.show(
         notification.hashCode,

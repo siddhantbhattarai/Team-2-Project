@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ismt_anchor/screens/Home/service/home_service.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BannerComponent extends StatefulWidget {
@@ -36,7 +37,45 @@ class _BannerComponentState extends State<BannerComponent> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return     data==null?Shimmer.fromColors(
+                                baseColor: const Color.fromARGB(255, 215, 215, 215),
+                                highlightColor: Colors.grey.shade700,
+                                child:  Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height:70,
+                                        width: Get.width,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(10)
+                                        ),
+                                      ),
+                                  
+                                   
+                                    ],
+                                  ),
+                                )):data.isEmpty? Shimmer.fromColors(
+                                baseColor: const Color.fromARGB(255, 215, 215, 215),
+                                highlightColor: Colors.grey.shade700,
+                                child:  Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height:70,
+                                        width: Get.width,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(10)
+                                        ),
+                                      ),
+                                  
+                                   
+                                    ],
+                                  ),
+                                )):  Container(
       width: Get.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -57,7 +96,7 @@ class _BannerComponentState extends State<BannerComponent> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("assets/banner.png",height: 70,),
-         data==null?Center():  Column(
+      Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -68,7 +107,7 @@ class _BannerComponentState extends State<BannerComponent> {
                 SizedBox(
                   width: Get.width*0.6,
                   child: Text(data[0]["content"],overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
+                  maxLines: 3,
                   style:const TextStyle(fontWeight: FontWeight.w400,fontSize: 11,color: Colors.white),),
                 ),
              const   SizedBox(height: 10,),

@@ -5,7 +5,9 @@ import 'package:ismt_anchor/routes/get_routes.dart';
 import 'package:ismt_anchor/screens/AddNews/add_news.dart';
 import 'package:ismt_anchor/screens/BottomNavigationBar/bottom_nav_bar.dart';
 import 'package:ismt_anchor/screens/Fee/view/fee_screen.dart';
+import 'package:ismt_anchor/screens/Fee/view/unable_to_pay.dart';
 import 'package:ismt_anchor/screens/Home/view/home_screen.dart';
+import 'package:ismt_anchor/screens/JobVacancy/view/job_vacancy_screen.dart';
 import 'package:ismt_anchor/screens/Message/view/message_screen.dart';
 import 'package:ismt_anchor/screens/News/view/news_details.dart';
 import 'package:ismt_anchor/screens/News/view/news_screen.dart';
@@ -35,5 +37,7 @@ List<GetPage<dynamic>> getpages = [
   GetPage(name: Routes.allresultsScreen, page: () =>const AllResultScreen()),
   GetPage(name: Routes.tutorialScreen, page: () =>const TutorialScreen()),
   GetPage(name: Routes.studentPost, page: () =>const StudentPost()),
+  GetPage(name: Routes.unabletoPayScreen, page: () =>const UnableToPayScreen()),
+  GetPage(name: Routes.jobVacancyScreen, page: () =>const JobVacancyScreen()),
   
   ];

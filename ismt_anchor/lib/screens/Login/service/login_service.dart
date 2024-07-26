@@ -29,6 +29,8 @@ UserService().getuser().whenComplete((){
 
 });
 }else{
+  hideLoading();
+  showSnackBar(title: "Something went wrong");
 
 }
 } catch (e) {

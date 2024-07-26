@@ -26,7 +26,7 @@ class _TopComponentState extends State<TopComponent> {
   @override
   Widget build(BuildContext context) {
       double percent=attendance/90*100;
-      print(percent/100);
+      print(attendance);
     return Stack(
       children: [
         Container(
@@ -59,7 +59,7 @@ class _TopComponentState extends State<TopComponent> {
                Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-              Text(widget.topnumber,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 50,color: Colors.white),),
+              Text(  widget.title=="Attendance"? attendance.toString():widget.topnumber,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 50,color: Colors.white),),
               Text("/${widget.bottomnumber}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15,color: Colors.white),)
         
                 ],

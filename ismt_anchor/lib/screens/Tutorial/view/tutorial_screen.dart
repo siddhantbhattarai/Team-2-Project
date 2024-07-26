@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ismt_anchor/global/widget/my_drawer.dart';
 import 'package:ismt_anchor/screens/Tutorial/service/tutorial_post.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../components/tutorial_component.dart';
 
@@ -28,7 +30,37 @@ class TutorialScreen extends StatelessWidget {
                 future: TutorialService().getTutorials(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center();
+                    return Shimmer.fromColors(
+                                baseColor: const Color.fromARGB(255, 215, 215, 215),
+                                highlightColor: Colors.grey.shade700,
+                                child:  Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: Get.height*0.3,
+                                        width: Get.width,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(height: 10,),
+                                      Container(
+                                            height: 10,
+                                            width: Get.width,
+                                            color: Colors.white,
+                                          ),
+                                      SizedBox(height: 10,),
+                                  
+                                           Container(
+                                            height: 10,
+                                                                                   width: Get.width,
+                                  
+                                            color: Colors.white,
+                                          ),
+                                   
+                                    ],
+                                  ),
+                                ));
+                          
                   } else {
                     return ListView.builder(
                       itemCount: snapshot.data!.length,

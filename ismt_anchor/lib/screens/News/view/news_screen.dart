@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:ismt_anchor/global/constant/apiurl.dart';
 import 'package:ismt_anchor/global/widget/my_drawer.dart';
 import 'package:ismt_anchor/screens/News/service/news_service.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../global/widget/notification_bell_component.dart';
 import '../components/news_component.dart';
@@ -44,12 +45,43 @@ class _NewsScreenState extends State<NewsScreen> {
             children: [
              FutureBuilder(future: NewsService().getallnews(), builder: (context, snapshot) {
                if(snapshot.connectionState==ConnectionState.waiting){
-                return SizedBox(
-                  height: Get.height*0.7,
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
+                return ListView.builder(
+                          itemCount: 7,
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return Shimmer.fromColors(
+                                baseColor: const Color.fromARGB(255, 215, 215, 215),
+                                highlightColor: Colors.grey.shade700,
+                                child:  Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: Get.height*0.3,
+                                        width: Get.width,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(height: 10,),
+                                      Container(
+                                            height: 10,
+                                            width: Get.width,
+                                            color: Colors.white,
+                                          ),
+                                      SizedBox(height: 10,),
+                                  
+                                           Container(
+                                            height: 10,
+                                                                                   width: Get.width,
+                                  
+                                            color: Colors.white,
+                                          ),
+                                   
+                                    ],
+                                  ),
+                                ));
+                          });
                }else{
                 return   ListView.builder(
                       itemCount: snapshot.data
