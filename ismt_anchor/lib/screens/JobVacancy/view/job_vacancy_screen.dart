@@ -26,7 +26,7 @@ class JobVacancyScreen extends StatelessWidget {
                     physics:const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final data=snapshot.data![index];
-          return    JobComponent(title:data.description , companayname: "ISMT College", location: "Kathmandu,Nepal", timeago: data.issueDate, link: data.applyLink, image: "https://st3.depositphotos.com/43745012/44906/i/450/depositphotos_449066958-stock-photo-financial-accounting-logo-financial-logo.jpg");
+          return    JobComponent(title:data.post , companayname: "ISMT College", location: "Kathmandu,Nepal", timeago: data.issueDate, link: data.applyLink, image: "https://st3.depositphotos.com/43745012/44906/i/450/depositphotos_449066958-stock-photo-financial-accounting-logo-financial-logo.jpg");
                      
                   },);
                 }
