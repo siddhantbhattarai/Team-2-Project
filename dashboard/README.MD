@@ -150,9 +150,7 @@ The main dashboard provides an overview of key metrics and summaries. It include
 ## 8. Contact Information
 
 For further assistance, please contact:
-- **Support Team**: support@yourcompany.com
-- **Phone**: +123-456-7890
+- **Support Team**: shaharishankar11@gmail.com
+- **Phone**: 9819897863
 
 ---
-
-This manual provides the necessary information to get started with your webpage dashboard. For detailed instructions on each functionality, refer to the respective sections.
