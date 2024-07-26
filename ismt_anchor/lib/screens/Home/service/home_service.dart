@@ -57,10 +57,10 @@ class HomeService{
     try {
       SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
     int id=  sharedPreferences.getInt("id")!;
-        http.Response res = await http.get(Uri.parse("$studentfeeurl/$id"),
+        http.Response res = await http.get(Uri.parse("$studentresulturl/$id"),
           headers: {'Content-Type': 'Application/json'},
          );
-  
+  print("${res.body} hello1");
       if (res.statusCode == 200) {
            for (var i = 0; i < jsonDecode(res.body).length; i++) {
           userModel

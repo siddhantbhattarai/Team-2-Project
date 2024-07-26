@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ismt_anchor/global/service/user_service.dart';
 
 
 class UserResultComponent extends StatelessWidget {
@@ -18,11 +19,23 @@ class UserResultComponent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Yunish Pandit",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
-            Text("Student account:#32983298",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12,color: Color(0xff969696)),),
+            FutureBuilder(future: UserService().getuser(), builder: (context, snapshot) {
+              if(snapshot.connectionState==ConnectionState.waiting){
+                return Center();
+              }else{
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+ Text(snapshot.data!.name,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
+            Text("Student account:#${snapshot.data!.id}",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12,color: Color(0xff969696)),),
             SizedBox(height: 10,),
-            Text("Email:yunishpandit98@gmail.com",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13,color: Color(0xff969696)),),
-            Text("Phone:9828900311",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13,color: Color(0xff969696)),),
+            Text("Email:${snapshot.data!.email}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13,color: Color(0xff969696)),),
+            Text("Phone:${snapshot.data!.mobile}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13,color: Color(0xff969696)),),
+                  ],
+                );
+              }
+            },),
+           
 
             SizedBox(height: 10,),
 

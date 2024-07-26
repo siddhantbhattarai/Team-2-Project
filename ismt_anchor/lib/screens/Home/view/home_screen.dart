@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ismt_anchor/global/constant/apiurl.dart';
+import 'package:ismt_anchor/global/constant/color.dart';
 import 'package:ismt_anchor/global/constant/global.dart';
 import 'package:ismt_anchor/global/widget/my_drawer.dart';
 import 'package:ismt_anchor/global/widget/notification_bell_component.dart';
@@ -315,23 +316,108 @@ String formatNumber1(int number) {
                   TextButton(onPressed: () {}, child: Text("View All")),
                 ],
               ),
-              
-              ResultComponent(
-                icon: Icons.done,
+               FutureBuilder(
+                future: HomeService().getstudentResult(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return ListView.builder(
+                        itemCount: 3,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Shimmer.fromColors(
+                              baseColor:
+                                  const Color.fromARGB(255, 215, 215, 215),
+                              highlightColor: Colors.grey.shade700,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                      subtitle: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      title: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      leading: Container(
+                                        height: 50,
+                                        width: 50,
+                                        color: Colors.white,
+                                      ))
+                                ],
+                              ));
+                        });
+                  } else {
+                    if(snapshot.data!.isEmpty){
+                      return ListView.builder(
+                        itemCount: 3,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Shimmer.fromColors(
+                              baseColor:
+                                  const Color.fromARGB(255, 215, 215, 215),
+                              highlightColor: Colors.grey.shade700,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                      subtitle: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      title: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      leading: Container(
+                                        height: 50,
+                                        width: 50,
+                                        color: Colors.white,
+                                      ))
+                                ],
+                              ));
+                        });
+                    }else{
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: snapshot.data!.take(3).length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final data = snapshot.data![index];
+                        return GestureDetector(
+                          onTap: () {
+                              
+                          },
+                          child:   ResultComponent(
+                icon:data.passfail=="Running"?Icons.run_circle_outlined:data.passfail=="Fail"?Icons.close: Icons.done,
                 title: "BScComputer Systems Engineering (IT)",
-                color1: Colors.greenAccent,
-                subtitle: "First Semester",
+                color1:data.passfail=="Running"?primaryColor:data.passfail=="Fail"?Colors.red: Colors.greenAccent,
+                subtitle:data.semester,
                 onTap: () {
-                  Get.toNamed(Routes.resultScreen);
+                   Get.toNamed(Routes.resultScreen,arguments: {
+          "semester":data.semester,
+          "image":"$imagebase${data.resultphoto}",
+          
+        });
+                 
                 },
               ),
-              ResultComponent(
-                icon: Icons.run_circle_outlined,
-                title: "BScComputer Systems Engineering (IT)",
-                color1: Colors.blue,
-                subtitle: "Second Semester",
-                onTap: () {},
+                        );
+                      },
+                    );}
+                  }
+                },
               ),
+            
+             
             ],
           ),
         ),
