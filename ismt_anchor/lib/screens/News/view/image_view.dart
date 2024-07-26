@@ -8,17 +8,19 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:Stack(
-        children: [
-          PhotoView(
-               minScale: PhotoViewComputedScale.contained,
-            maxScale: PhotoViewComputedScale.covered * 2, 
-              imageProvider: NetworkImage(url)),
-              Positioned(child: IconButton(onPressed: (){
-                Get.back();
-              }, icon:const Icon(Icons.close,color: Colors.white,size: 40,)))
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body:Stack(
+          children: [
+            PhotoView(
+                 minScale: PhotoViewComputedScale.contained,
+              maxScale: PhotoViewComputedScale.covered * 2, 
+                imageProvider: NetworkImage(url)),
+                Positioned(child: IconButton(onPressed: (){
+                 Navigator.pop(context);
+                }, icon:const Icon(Icons.close,color: Colors.white,size: 40,)))
+          ],
+        ),
       ),
     );
   }

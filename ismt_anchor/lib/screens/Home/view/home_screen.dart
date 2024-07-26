@@ -41,7 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
       return '${(number / 100000).round()} lakhs';
     }
   }
-
+String formatNumber1(int number) {
+    if (number < 100000) {
+      return '${(number / 1000).round()}k';
+    } else {
+      return '${(number / 100000).round()}';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ));
                   } else {
-                    if(snapshot.data==null){
+                    if(snapshot.data==null|| snapshot.data!.isEmpty){
                       return Shimmer.fromColors(
                         baseColor: const Color.fromARGB(255, 215, 215, 215),
                         highlightColor: Colors.grey.shade700,
@@ -170,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomnumber: formatNumber(snapshot.data![0].total),
                               image: "assets/money.png",
                               title: "College Fee",
-                              topnumber: formatNumber(snapshot.data![0].paid),
+                              topnumber:formatNumber1( snapshot.data![0].paid),
                             ))
                       ],
                     );
@@ -233,6 +239,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               ));
                         });
                   } else {
+                    if(snapshot.data!.isEmpty){
+                      return ListView.builder(
+                        itemCount: 3,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Shimmer.fromColors(
+                              baseColor:
+                                  const Color.fromARGB(255, 215, 215, 215),
+                              highlightColor: Colors.grey.shade700,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                      subtitle: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      title: Container(
+                                        height: 10,
+                                        width: 89,
+                                        color: Colors.white,
+                                      ),
+                                      leading: Container(
+                                        height: 50,
+                                        width: 50,
+                                        color: Colors.white,
+                                      ))
+                                ],
+                              ));
+                        });
+                    }else{
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: snapshot.data!.take(3).length,
@@ -256,7 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         );
                       },
-                    );
+                    );}
                   }
                 },
               ),

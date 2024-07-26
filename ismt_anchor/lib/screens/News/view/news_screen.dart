@@ -83,6 +83,45 @@ class _NewsScreenState extends State<NewsScreen> {
                                 ));
                           });
                }else{
+                if(snapshot.data!.isEmpty){
+                  return ListView.builder(
+                          itemCount: 7,
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return Shimmer.fromColors(
+                                baseColor: const Color.fromARGB(255, 215, 215, 215),
+                                highlightColor: Colors.grey.shade700,
+                                child:  Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: Get.height*0.3,
+                                        width: Get.width,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(height: 10,),
+                                      Container(
+                                            height: 10,
+                                            width: Get.width,
+                                            color: Colors.white,
+                                          ),
+                                      SizedBox(height: 10,),
+                                  
+                                           Container(
+                                            height: 10,
+                                                                                   width: Get.width,
+                                  
+                                            color: Colors.white,
+                                          ),
+                                   
+                                    ],
+                                  ),
+                                ));
+                          });
+                }else{
                 return   ListView.builder(
                       itemCount: snapshot.data
                       !.length,
@@ -106,7 +145,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
 
                      );
-               }
+               }}
              },),
                    
                     
